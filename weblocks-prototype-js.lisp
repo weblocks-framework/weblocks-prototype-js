@@ -8,10 +8,10 @@
     (when (equal (weblocks:weblocks-webapp-js-backend self) :prototype)
       (let ((base-path  (weblocks::asdf-system-directory :weblocks-prototype-js)))
         (list 
-          (make-instance 'weblocks:script-dependency :url "/pub/scripts/prototype-backend/prototype.js"     :local-path (merge-pathnames #p"scripts/prototype.js" base-path))
-          (make-instance 'weblocks:script-dependency :url "/pub/scripts/prototype-backend/scriptaculous.js" :local-path (merge-pathnames #p"scripts/scriptaculous.js" base-path))
-          (make-instance 'weblocks:script-dependency :url "/pub/scripts/prototype-backend/weblocks.js"      :local-path (merge-pathnames #p"scripts/weblocks.js" base-path))
-          (make-instance 'weblocks:script-dependency :url "/pub/scripts/prototype-backend/dialog.js"        :local-path (merge-pathnames #p"scripts/dialog.js" base-path)))))))
+          (make-instance 'weblocks:script-dependency :url (weblocks-utils:prepend-webapp-path "/pub/scripts/prototype-backend/prototype.js" self)     :local-path (merge-pathnames #p"scripts/prototype.js" base-path))
+          (make-instance 'weblocks:script-dependency :url (weblocks-utils:prepend-webapp-path "/pub/scripts/prototype-backend/scriptaculous.js" self) :local-path (merge-pathnames #p"scripts/scriptaculous.js" base-path))
+          (make-instance 'weblocks:script-dependency :url (weblocks-utils:prepend-webapp-path "/pub/scripts/prototype-backend/weblocks.js" self)      :local-path (merge-pathnames #p"scripts/weblocks.js" base-path))
+          (make-instance 'weblocks:script-dependency :url (weblocks-utils:prepend-webapp-path "/pub/scripts/prototype-backend/dialog.js" self)        :local-path (merge-pathnames #p"scripts/dialog.js" base-path)))))))
 
 (defmethod initialize-webapp :after ((self weblocks-webapp))
   ; Serving all files from scripts/ directory

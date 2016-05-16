@@ -5,8 +5,8 @@
   :description "Weblocks JavaScript backend for PrototypeJs"
   :author "Olexiy Zamkoviy <olexiy.z@gmail.com>"
   :license "LLGPL"
-  :version "0.0.1"
-  :depends-on (#:weblocks)
+  :version "0.0.2"
+  :depends-on (#:weblocks #:weblocks-utils)
   :components ((:file "package")
                (:file "weblocks-prototype-js")))
 
