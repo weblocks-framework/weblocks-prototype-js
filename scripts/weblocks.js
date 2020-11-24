@@ -259,3 +259,6 @@ function updateWidgetStateFromHash() {
   if (hash)
     initiateActionWithArgs(null, null, {'weblocks-internal-location-hash':hash}, "GET", "/");
 }
+
+// This fixes error with demo app and grid component (Weblocks 0.13.7)
+window.initiateActionOnEmptySelection = initiateAction;
